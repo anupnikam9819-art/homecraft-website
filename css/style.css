@@ -267,3 +267,19 @@ input{
     text-align:center;
     margin-top:20px;
 }
+/* Contact/Login Page Layout */
+.contact-container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+    align-items:flex-start;
+}
+
+.contact-form{
+    width:400px;
+}
+
+.contact-info{
+    width:300px;   
+} 
