@@ -267,41 +267,40 @@ input{
     text-align:center;
     margin-top:20px;
 }
-/* Contact/Login Page Layout */
+/* ===== LOGIN PAGE LAYOUT ===== */
+
 .contact-container{
     display:flex;
     justify-content:center;
+    align-items:center;
     gap:40px;
-    margin-top:40px;
-    align-items:flex-start;
+    margin-top:50px;
+    padding:20px;
+    flex-wrap:wrap; /* responsive */
 }
 
-.contact-form{
-    width:400px;
-}
+/* ===== FORM BOX ===== */
 
-.contact-info{
-    width:300px;   
-} 
-/* Form Box Styling */
 .contact-form{
     width:400px;
     background:white;
     padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* Right Info Box */
+/* ===== RIGHT INFO BOX ===== */
+
 .contact-info{
     width:300px;
     background:white;
     padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* Improve input fields */
+/* ===== INPUT FIELDS ===== */
+
 .contact-form input{
     width:100%;
     padding:10px;
@@ -310,23 +309,44 @@ input{
     margin-top:5px;
     margin-bottom:15px;
     font-size:14px;
+    transition:0.3s;
 }
 
-/* Input focus effect */
+/* Focus Effect */
 .contact-form input:focus{
     border-color:#27ae60;
     outline:none;
-    box-shadow:0 0 5px rgba(39,174,96,0.4);
+    box-shadow:0 0 6px rgba(39,174,96,0.4);
 }
 
-/* Improve spacing */
+/* ===== LABEL ===== */
+
 .contact-form label{
     font-weight:bold;
+    font-size:14px;
 }
 
-/* Improve button */
+/* ===== BUTTON ===== */
+
 .contact-form button{
     padding:10px 18px;
     font-size:14px;
     border-radius:6px;
+    background:#27ae60;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
 }
+
+.contact-form button:hover{
+    background:#1e8449;
+}
+
+/* ===== PAGE TITLE ===== */
+
+h1{
+    text-align:center;
+    margin-top:20px;
+}
+/* Contact/Login Page Layout */
