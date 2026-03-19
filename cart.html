@@ -1,37 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cart-HomeCraft</title>
+    <title>Cart - HomeCraft</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="navbar">
-        <a href="index.html">Home</a>|
-        <a href="products.html">Products</a>|
-        <a href="cart.html">Cart</a>|
-        <a href="login.html">Login</a>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="login.html">Login</a>
+</div>
+
+<!-- Page Title -->
+<h1 class="cart-title">Shopping Cart</h1>
+
+<!-- Cart Box -->
+<div class="cart-box">
+
+    <!-- Item 1 -->
+    <div class="cart-item">
+        <img src="images/sofa.jpg" alt="Sofa">
+
+        <div class="cart-details">
+            <h3>Modern Sofa</h3>
+        </div>
+
+        <div class="cart-price">
+            ₹299
+        </div>
+
+        <div class="cart-qty">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
     </div>
-    <h1>Your Cart</h1>
-    <div class="cart-container">
-        <div class="cart-item">
-        <span class="product-name">Wooden Chair</span>
-        <span class="product-price">₹2000</span>
-        <div class="caart-actions">
-            <button class="buy-btn">Buy</button>
-            <button class="remove-btn">Remove</button>
+
+    <!-- Item 2 -->
+    <div class="cart-item">
+        <img src="images/macrame.jpg" alt="Macrame">
+
+        <div class="cart-details">
+            <h3>Macrame Wall Hanging</h3>
         </div>
+
+        <div class="cart-price">
+            ₹35
         </div>
-        <div class="cart-item">
-        <div>
-        <span class="product-name">Wall Frame Decor</span>
-        <span class="product-price">₹800</span>
-        <div class="caart-actions">
-            <button class="buy-btn">Buy</button>
-            <button class="remove-btn">Remove</button>
-        </div>
+
+        <div class="cart-qty">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
         </div>
     </div>
-    <h3>Total Price:₹2800</h3>
-    <button>Buy All</button> 
+
+    <!-- Total Section -->
+    <div class="cart-total">
+        <h2>Total: ₹334</h2>
+    </div>
+
+    <!-- Checkout Button -->
+    <div class="checkout-btn">
+        <button>Proceed to Checkout</button>
+    </div>
+
+</div>
+
 </body>
 </html>
