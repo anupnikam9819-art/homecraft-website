@@ -32,20 +32,36 @@
             <img src="images/chair.jpg" width="200">
             <h3>Wooden Chair</h3>
             <p>₹2000</p>
-            <button>Add to Cart</button>
+            <button onclick="addToCart('Wooden Chair', 2000)">Add to Cart</button>
         </div>
         <div class="product-card">
             <img src="images/frame.jpg" width="200">
             <h3>Wall Frame Decor</h3>
             <p>₹800</p>
-            <button>Add to Cart</button>
+            <button onclick="addToCart('Wall Frame Decor', 800)">Add to Cart</button>
         </div>
         <div class="product-card">
             <img src="images/shelf.jpg" width="200">
             <h3>DIY Shelf Kit</h3>
             <p>₹1500</p>
-            <button>Add to Cart</button>
+            <button onclick="addToCart('DIY Shelf Kit', 1500)">Add to Cart</button>
         </div>
     </div>
+    <script>
+    function addToCart(name, price)
+    {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+        
+        localStorage.setItem("cart", JSON.stringify(cart));
+        
+        alert(name + " added to cart!");
+}
+</script>
 </body>
 </html>
