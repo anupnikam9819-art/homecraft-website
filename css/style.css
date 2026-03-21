@@ -359,3 +359,148 @@ button:hover{
     width:auto;   /* 🔥 VERY IMPORTANT (keeps ratio) */
     object-fit:contain;
 }
+/* ================= NEW CART PAGE (MODERN UI) ================= */
+
+/* Main layout */
+.cart-wrapper{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    width:90%;
+    margin:30px auto;
+    flex-wrap:wrap;
+}
+
+/* LEFT SIDE */
+.cart-left{
+    flex:2;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.clear-cart{
+    color:red;
+    cursor:pointer;
+    font-size:14px;
+}
+
+/* Cart item */
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px;
+    border:1px solid #eee;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+/* Left item (image + text) */
+.item-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.item-left img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* Quantity box */
+.qty-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.qty-box button{
+    background:#eee;
+    color:#333;
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+.qty-box span{
+    font-weight:bold;
+}
+
+/* Price */
+.item-price{
+    font-weight:bold;
+    width:80px;
+    text-align:center;
+}
+
+/* Remove button */
+.remove-btn{
+    color:red;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* RIGHT SIDE */
+.cart-right{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    height:fit-content;
+}
+
+/* Promo box */
+.promo-box{
+    display:flex;
+    gap:10px;
+    margin:10px 0;
+}
+
+.promo-box input{
+    flex:1;
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.promo-box button{
+    background:black;
+}
+
+/* Summary rows */
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+}
+
+/* Total highlight */
+.summary-row.total{
+    font-size:18px;
+}
+
+/* Checkout button */
+.checkout-btn{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:black;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.checkout-btn:hover{
+    background:#333;
+}

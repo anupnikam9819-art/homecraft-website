@@ -9,9 +9,8 @@
 
 <!-- Navbar -->
 <header class="navbar">
-
     <div class="logo">
-        <img src="images/logo.png" alt="logo">
+        <img src="images/logo.png" width="30">
         <span>HomeCraft</span>
     </div>
 
@@ -25,64 +24,170 @@
     <div class="login-panel">
         <a href="login.html">👤 Login</a>
     </div>
-
 </header>
 
-<!-- Page Title -->
-<h1 class="cart-title">Shopping Cart</h1>
+<!-- CART WRAPPER -->
+<div class="cart-wrapper">
 
-<!-- Cart Box -->
-<div class="cart-box">
+    <!-- LEFT SIDE -->
+    <div class="cart-left">
 
-    <!-- Item 1 -->
-    <div class="cart-item">
-        <img src="images/sofa.jpg" alt="Sofa">
-
-        <div class="cart-details">
-            <h3>Modern Sofa</h3>
+        <div class="cart-header">
+            <h2>Cart (2 products)</h2>
+            <span class="clear-cart">Clear cart</span>
         </div>
 
-        <div class="cart-price">
-            ₹299
+        <!-- ITEM 1 -->
+        <div class="cart-item">
+
+            <div class="item-left">
+                <img src="images/chair.jpg">
+
+                <div>
+                    <b>Wooden Chair</b>
+                    <p>Furniture</p>
+                </div>
+            </div>
+
+            <div class="qty-box">
+                <button class="minus">-</button>
+                <span class="qty">1</span>
+                <button class="plus">+</button>
+            </div>
+
+            <div class="item-price" data-price="2000">₹2000</div>
+
+            <div class="remove-btn">✖</div>
+
         </div>
 
-        <div class="cart-qty">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+        <!-- ITEM 2 -->
+        <div class="cart-item">
+
+            <div class="item-left">
+                <img src="images/frame.jpg">
+
+                <div>
+                    <b>Wall Frame Decor</b>
+                    <p>Decor</p>
+                </div>
+            </div>
+
+            <div class="qty-box">
+                <button class="minus">-</button>
+                <span class="qty">1</span>
+                <button class="plus">+</button>
+            </div>
+
+            <div class="item-price" data-price="800">₹800</div>
+
+            <div class="remove-btn">✖</div>
+
         </div>
+
     </div>
 
-    <!-- Item 2 -->
-    <div class="cart-item">
-        <img src="images/macrame.jpg" alt="Macrame">
+    <!-- RIGHT SIDE -->
+    <div class="cart-right">
 
-        <div class="cart-details">
-            <h3>Macrame Wall Hanging</h3>
+        <h3>Promo Code</h3>
+
+        <div class="promo-box">
+            <input type="text" placeholder="Type here...">
+            <button>Apply</button>
         </div>
 
-        <div class="cart-price">
-            ₹35
+        <hr>
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">₹2800</span>
         </div>
 
-        <div class="cart-qty">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+        <div class="summary-row">
+            <span>Discount</span>
+            <span>₹0</span>
         </div>
-    </div>
 
-    <!-- Total Section -->
-    <div class="cart-total">
-        <h2>Total: ₹334</h2>
-    </div>
+        <div class="summary-row total">
+            <b>Total</b>
+            <b id="total">₹2800</b>
+        </div>
 
-    <!-- Checkout Button -->
-    <div class="checkout-btn">
-        <button>Proceed to Checkout</button>
+        <button class="checkout-btn">Continue to checkout</button>
+
     </div>
 
 </div>
 
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+const plusBtns = document.querySelectorAll(".plus");
+const minusBtns = document.querySelectorAll(".minus");
+const removeBtns = document.querySelectorAll(".remove-btn");
+const subtotalEl = document.getElementById("subtotal");
+const totalEl = document.getElementById("total");
+const clearCartBtn = document.querySelector(".clear-cart");
+
+// 🔥 Update Total
+function updateTotal() {
+    let total = 0;
+
+    document.querySelectorAll(".cart-item").forEach(item => {
+        const price = parseInt(item.querySelector(".item-price").dataset.price);
+        const qty = parseInt(item.querySelector(".qty").innerText);
+
+        total += price * qty;
+    });
+
+    subtotalEl.innerText = "₹" + total;
+    totalEl.innerText = "₹" + total;
+}
+
+// ➕ PLUS
+plusBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        let qtyEl = btn.parentElement.querySelector(".qty");
+        let qty = parseInt(qtyEl.innerText);
+        qty++;
+        qtyEl.innerText = qty;
+        updateTotal();
+    });
+});
+
+// ➖ MINUS
+minusBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        let qtyEl = btn.parentElement.querySelector(".qty");
+        let qty = parseInt(qtyEl.innerText);
+
+        if (qty > 1) {
+            qty--;
+            qtyEl.innerText = qty;
+            updateTotal();
+        }
+    });
+});
+
+// ❌ REMOVE ITEM
+removeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.closest(".cart-item").remove();
+        updateTotal();
+    });
+});
+
+// 🧹 CLEAR CART
+clearCartBtn.addEventListener("click", () => {
+    document.querySelectorAll(".cart-item").forEach(item => item.remove());
+    updateTotal();
+});
+
+// INITIAL LOAD
+updateTotal();
+
+</script>
+
 </body>
-</html>
+</html> 
