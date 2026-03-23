@@ -39,6 +39,9 @@
 
         <!-- 🔥 Dynamic items -->
         <div id="cart-container"></div>
+        <p id="empty-msg" style="text-align:center; display:none;">
+            Your cart is empty 🛒
+        </p>
 
     </div>
 
@@ -91,6 +94,12 @@ function renderCart() {
 
     container.innerHTML = "";
     let total = 0;
+
+    if(cart.length === 0){
+        document.getElementById("empty-msg").style.display = "block";
+    } else {
+        document.getElementById("empty-msg").style.display = "none";
+    }
 
     cartCount.innerText = cart.length;
 

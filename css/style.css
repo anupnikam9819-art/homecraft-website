@@ -574,3 +574,22 @@ button:hover{
     }
 
 }
+
+/* Toast Message */
+.toast{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#27ae60;
+    color:white;
+    padding:12px 20px;
+    border-radius:6px;
+    opacity:0;
+    transition:0.5s;
+    z-index:1000;
+}
+
+.toast.show{
+    opacity:1;
+}
+

@@ -5,7 +5,7 @@
     <title>HomeCraft - DIY & Home Improvement Store</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
+<div id="toast" class="toast">Item added to cart!</div>
 <body>
 
 <!-- Header / Navbar -->
@@ -115,6 +115,18 @@
 <script>
 
 // 🛒 Add to Cart
+
+
+function showToast(message){
+    let toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+}
+
 function addToCart(name, price, image){
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -136,7 +148,7 @@ function addToCart(name, price, image){
 
     updateCartCount();
 
-    alert(name + " added to cart!");
+    showToast(name + " added to cart ✅");
 }
 
 // 🔢 Cart Count
