@@ -37,8 +37,11 @@
         <img src="images/chair.jpg" width="200">
         <h3>Wooden Chair</h3>
         <p>₹2000</p>
-        <button onclick="addToCart('Wooden Chair', 2000, 'images/chair.jpg')">
+        <button onclick="addToCart('Wooden Chair', ₹2000, 'images/chair.jpg')">
             Add to Cart
+        </button>
+        <button onclick="addToWishlist('Wooden Chair', ₹2000)">
+            ❤️
         </button>
     </div>
 
@@ -46,8 +49,11 @@
         <img src="images/frame.jpg" width="200">
         <h3>Wall Frame Decor</h3>
         <p>₹800</p>
-        <button onclick="addToCart('Wall Frame Decor', 800, 'images/frame.jpg')">
+        <button onclick="addToCart('Wall Frame Decor', ₹800, 'images/frame.jpg')">
             Add to Cart
+        </button>
+        <button onclick="addToWishlist('Wall Frame Decor', ₹800)">
+            ❤️
         </button>
     </div>
 
@@ -55,8 +61,11 @@
         <img src="images/shelf.jpg" width="200">
         <h3>DIY Shelf Kit</h3>
         <p>₹1500</p>
-        <button onclick="addToCart('DIY Shelf Kit', 1500, 'images/shelf.jpg')">
+        <button onclick="addToCart('DIY Shelf Kit', ₹1500, 'images/shelf.jpg')">
             Add to Cart
+        </button>
+        <button onclick="addToWishlist('DIY Shelf Kit', ₹1500)">
+            ❤️
         </button>
     </div>
 
@@ -110,9 +119,20 @@ function updateCartCount(){
 
     document.getElementById("cart-count-nav").innerText = count;
 }
-
-updateCartCount();
-
+    
+    updateCartCount();
+    
+    function addToWishlist(name, price){
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        let found = wishlist.find(item => item.name === name);
+        if(!found){
+            wishlist.push({name, price});
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+            showToast(name + " added to wishlist ❤️");
+        } else {
+            showToast("Already in wishlist ❗");
+    }
+}
 </script>
 
 </body>
