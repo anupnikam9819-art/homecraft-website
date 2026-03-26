@@ -40,7 +40,7 @@
 
 <div class="products">
 
-    <div class="product-card">
+    <div class="product-card" data-category="furniture">
         <img src="images/chair.jpg" width="200">
         <h3>Wooden Chair</h3>
         <p>₹2000</p>
@@ -52,7 +52,7 @@
         </button>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-category="decor">
         <img src="images/frame.jpg" width="200">
         <h3>Wall Frame Decor</h3>
         <p>₹800</p>
@@ -64,7 +64,7 @@
         </button>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-category="diy">
         <img src="images/shelf.jpg" width="200">
         <h3>DIY Shelf Kit</h3>
         <p>₹1500</p>
@@ -156,7 +156,25 @@ function searchProduct(){
         }
     });
 }
+function filterCategory(category){
 
+    let products = document.querySelectorAll(".product-card");
+
+    products.forEach(product => {
+
+        if(category === "all"){
+            product.style.display = "block";
+        } 
+        else if(product.dataset.category === category){
+            product.style.display = "block";
+        } 
+        else {
+            product.style.display = "none";
+        }
+
+    });
+
+}
 </script>
 
 </body>
