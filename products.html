@@ -19,6 +19,12 @@
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="#">Categories</a>
+        <select onchange="filterCategory(this.value)">
+            <option value="all">Categories</option>
+            <option value="furniture">Furniture</option>
+            <option value="decor">Decor</option>
+            <option value="diy">DIY</option>
+        </select>
         <a href="cart.html">Cart (<span id="cart-count-nav">0</span>)</a>
     </nav>
 
