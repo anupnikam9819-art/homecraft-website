@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist - HomeCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.png" width="30">
+        <span>HomeCraft</span>
+    </div>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="wishlist.html">Wishlist ❤️</a>
+    </nav>
+
+    <div class="login-panel">
+        <a href="login.html">👤 Login</a>
+    </div>
+</header>
+
+<h1>My Wishlist ❤️</h1>
+
+<div id="wishlist-container" class="products"></div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let container = document.getElementById("wishlist-container");
+
+// ❌ EMPTY
+if(wishlist.length === 0){
+    container.innerHTML = "<h3 style='text-align:center;'>Your wishlist is empty 😢</h3>";
+}
+
+// ✅ SHOW ITEMS
+wishlist.forEach((item, index) => {
+    container.innerHTML += `
+    <div class="product-card">
+        <img src="${item.image}">
+        <h3>${item.name}</h3>
+        <p>₹${item.price}</p>
+
+        <button onclick="addToCart('${item.name}', ${item.price})">
+            Move to Cart
+        </button>
+
+        <button onclick="removeItem(${index})" style="background:red;">
+            Remove
+        </button>
+    </div>
+`;
+});
+
+// 🧹 REMOVE
+function removeItem(index){
+    wishlist.splice(index,1);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    location.reload();
+}
+
+// 🛒 MOVE TO CART
+function addToCart(name, price){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let found = cart.find(item => item.name === name);
+
+    if(found){
+        found.quantity++;
+    } else {
+        cart.push({name, price, quantity:1});
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Moved to cart ✅");
+}
+
+</script>
+
+</body>
+</html>

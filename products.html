@@ -26,6 +26,7 @@
         </select>
         <a href="cart.html">Cart (<span id="cart-count-nav">0</span>)</a>
         <input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
+        <a href="wishlist.html">Wishlist ❤️</a>
     </nav>
 
     <div class="login-panel">
@@ -46,7 +47,7 @@
         <button onclick="addToCart('Wooden Chair', 2000, 'images/chair.jpg')">
             Add to Cart
         </button>
-        <button onclick="addToWishlist('Wooden Chair', 2000)">
+        <button onclick="addToWishlist('Wooden Chair', 2000,'images/chair.jpg')">
             ❤️
         </button>
     </div>
@@ -58,7 +59,7 @@
         <button onclick="addToCart('Wall Frame Decor', 800, 'images/frame.jpg')">
             Add to Cart
         </button>
-        <button onclick="addToWishlist('Wall Frame Decor', 800)">
+        <button onclick="addToWishlist('Wall Frame Decor', 800,'images/frame.jpg')">
             ❤️
         </button>
     </div>
@@ -70,7 +71,7 @@
         <button onclick="addToCart('DIY Shelf Kit', 1500, 'images/shelf.jpg')">
             Add to Cart
         </button>
-        <button onclick="addToWishlist('DIY Shelf Kit', 1500)">
+        <button onclick="addToWishlist('DIY Shelf Kit', 1500,'images/shelf.jpg')">
             ❤️
         </button>
     </div>
@@ -114,7 +115,6 @@ function addToCart(name, price, image){
     showToast(name + " added to cart ✅");
 }
 
-
 function updateCartCount(){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     
@@ -125,21 +125,30 @@ function updateCartCount(){
 
     document.getElementById("cart-count-nav").innerText = count;
 }
-    
-    updateCartCount();
-    
-    function addToWishlist(name, price){
-        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-        let found = wishlist.find(item => item.name === name);
-        if(!found){
-            wishlist.push({name, price});
-            localStorage.setItem("wishlist", JSON.stringify(wishlist));
-            showToast(name + " added to wishlist ❤️");
-        } else {
-            showToast("Already in wishlist ❗");
+
+updateCartCount();
+
+// ✅ FIXED WISHLIST FUNCTION (ONLY ONE)
+function addToWishlist(name, price, image){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    let found = wishlist.find(item => item.name === name);
+
+    if(!found){
+        wishlist.push({
+            name: name,
+            price: price,
+            image: image
+        });
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        showToast(name + " added to wishlist ❤️");
+    } else {
+        showToast("Already in wishlist ❗");
     }
 }
-
 
 function searchProduct(){
     let input = document.getElementById("search").value.toLowerCase();
@@ -155,6 +164,7 @@ function searchProduct(){
         }
     });
 }
+
 function filterCategory(category){
 
     let products = document.querySelectorAll(".product-card");
@@ -172,8 +182,8 @@ function filterCategory(category){
         }
 
     });
-
 }
+
 </script>
 
 </body>
