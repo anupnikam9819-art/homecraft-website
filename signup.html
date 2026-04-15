@@ -14,12 +14,17 @@
 
         <h2>Signup Form</h2>
 
-        <input type="text" id="name" placeholder="Name">
-        <input type="email" id="email" placeholder="Email Address">
-        <input type="password" id="password" placeholder="Password">
-        <input type="password" id="confirm" placeholder="Confirm Password">
+        <!-- ✅ FIXED FORM -->
+        <form action="signup.php" method="POST" onsubmit="return validateForm()">
 
-        <button onclick="signup()">Signup</button>
+            <input type="text" name="name" id="name" placeholder="Name" required>
+            <input type="email" name="email" id="email" placeholder="Email Address" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirm" placeholder="Confirm Password" required>
+
+            <button type="submit">Signup</button>
+
+        </form>
 
         <p class="switch">
             Already have an account? <a href="login.html">Login</a>
@@ -29,7 +34,7 @@
 </div>
 
 <script>
-function signup(){
+function validateForm(){
 
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -38,19 +43,15 @@ function signup(){
 
     if(name === "" || email === "" || password === "" || confirm === ""){
         alert("Fill all fields ❗");
-        return;
+        return false;
     }
 
     if(password !== confirm){
         alert("Passwords do not match ❌");
-        return;
+        return false;
     }
 
-    let user = {name, email, password};
-    localStorage.setItem("user", JSON.stringify(user));
-
-    alert("Signup successful ✅");
-    window.location.href = "login.html";
+    return true;
 }
 </script>
 

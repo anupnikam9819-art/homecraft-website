@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_id'])){
+    header("Location: login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,11 +25,11 @@
     </div>
 
     <nav class="nav-links">
-        <a href="index.html">Home</a>
+        <a href="index.php">Home</a>
         <a href="products.html">Products</a>
-        <a href="#">Categories</a>
-        <a href="cart.html">Cart (<span id="cart-count-nav">0</span>)</a>
-        <a href="wishlist.html">Wishlist ❤️</a>
+        <a href="cart.php">Cart (<span id="cart-count-nav">0</span>)</a>
+        <a href="wishlist.php">Wishlist ❤️</a>
+        <a href="budget.html">Budget</a>
     </nav>
 
     <div class="login-panel">
@@ -37,7 +45,10 @@
     <div class="hero-text">
         <h1>Create Your Perfect Home</h1>
         <p>DIY Kits, Furniture & Home Decor</p>
+        <p class="highlight">Smart Budget-Based Shopping System 💡</p>
         <a href="products.html" class="shop-btn">Shop Now</a>
+        <a href="budget.html" class="shop-btn">Try Budget Setup 💡</a>
+
     </div>
 
 </section>

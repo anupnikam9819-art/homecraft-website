@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Products - HomeCraft</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,7 +17,7 @@
     </div>
 
     <nav class="nav-links">
-        <a href="index.html">Home</a>
+        <a href="index.php">Home</a>
         <a href="products.html">Products</a>
         <select onchange="filterCategory(this.value)">
             <option value="all">Categories</option>
@@ -24,9 +25,10 @@
             <option value="decor">Decor</option>
             <option value="diy">DIY</option>
         </select>
-        <a href="cart.html">Cart (<span id="cart-count-nav">0</span>)</a>
+        <a href="cart.php">Cart (<span id="cart-count-nav">0</span>)</a>
         <input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
-        <a href="wishlist.html">Wishlist ❤️</a>
+        <a href="wishlist.php">Wishlist ❤️</a>
+        <a href="budget.html">Budget</a>
     </nav>
 
     <div class="login-panel">

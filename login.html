@@ -14,12 +14,18 @@
 
         <h2>Login Form</h2>
 
-        <input type="email" id="email" placeholder="Email Address">
-        <input type="password" id="password" placeholder="Password">
+        <!-- ✅ FIXED FORM -->
+        <form action="login.php" method="POST">
 
-        <p class="forgot">Forgot password?</p>
+            <input type="email" name="email" placeholder="Email Address" required>
 
-        <button onclick="login()">Login</button>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <p class="forgot">Forgot password?</p>
+
+            <button type="submit">Login</button>
+
+        </form>
 
         <p class="switch">
             Create an account? <a href="signup.html">Signup now</a>
@@ -27,27 +33,6 @@
 
     </div>
 </div>
-
-<script>
-function login(){
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    let user = JSON.parse(localStorage.getItem("user"));
-
-    if(!user){
-        alert("No account found! Signup first ❗");
-        return;
-    }
-
-    if(email === user.email && password === user.password){
-        alert("Login successful ✅");
-        window.location.href = "index.html";
-    } else {
-        alert("Invalid credentials ❌");
-    }
-}
-</script>
 
 </body>
 </html>

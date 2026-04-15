@@ -738,3 +738,14 @@ button:hover{
     border-radius: 6px;
     cursor: pointer;
 }
+
+.highlight{
+    margin-top:10px;
+    font-size:20px;
+    color:#ffeb3b;
+    font-weight:bold;
+    text-shadow: 0 0 10px rgba(255,235,59,0.7);
+}
+.shop-btn{
+    margin:10px;
+}

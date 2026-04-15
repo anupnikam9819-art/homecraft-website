@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_id'])){
+    header("Location: login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +23,10 @@
     </div>
 
     <nav class="nav-links">
-        <a href="index.html">Home</a>
+        <a href="index.php">Home</a>
         <a href="products.html">Products</a>
-        <a href="#">Categories</a>
-        <a href="cart.html">Cart (<span id="cart-count-nav">0</span>)</a>
-        <a href="wishlist.html">Wishlist ❤️</a>
+        <a href="cart.php">Cart</a>
+        <a href="wishlist.php">Wishlist ❤️</a>
     </nav>
 
     <div class="login-panel">
@@ -186,7 +193,7 @@ function updateCartCount(){
 updateCartCount();
 
 function goToCheckout(){
-    window.location.href = "checkout.html";
+    window.location.href = "checkout.php";
 }
 
 </script>
