@@ -16,8 +16,8 @@ if(mysqli_num_rows($result) > 0){
     $user = mysqli_fetch_assoc($result);
 
     // Store session
-    $_SESSION['user_id'] = $row['id'];
-    $_SESSION['user_name'] = $row['name'];
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['user_name'] = $user['name'];
 
     // Redirect to home
     header("Location: index.php");
